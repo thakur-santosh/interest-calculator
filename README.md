@@ -9,6 +9,8 @@
 - User can also see the history on left sidebar
 - User can also perform action on history and get the intrest rate and monthly payment details
 
+![amountApp](https://user-images.githubusercontent.com/55426460/67393534-6e1f0f80-f557-11e9-9e6c-bdd35934e2d2.PNG)
+
 
 
 

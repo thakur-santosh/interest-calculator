@@ -1,11 +1,6 @@
 import React from 'react'
 
 function History(props) {
-    const h1 = {
-        textAlign: "center",
-        textTransform: "uppercase",
-        color: "#4CAF50"
-    }
 
     function handleClick(list) {
         props.handleClick(list)
@@ -15,7 +10,6 @@ function History(props) {
 
     return (
         <div>
-            <h1 style={h1}>History</h1>
             <ul className="nav flex-column">
                 {
                     lists.map((list, index) => {

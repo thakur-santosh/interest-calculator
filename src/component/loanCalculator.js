@@ -56,10 +56,16 @@ export default class LoanCalculator extends React.Component {
     }
 
     render() {
+        const h1 = {
+            textAlign: "center",
+            textTransform: "uppercase",
+            color: "#4CAF50"
+        }
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-md-3" style={{ "backgroundColor": "powderblue" }}>
+                        <h1 style={h1}>History</h1>
                         {localStorage.getItem('intrestList') && (<History handleClick={this.handleClick} />)}
                     </div>
                     <div className="col-md-9">

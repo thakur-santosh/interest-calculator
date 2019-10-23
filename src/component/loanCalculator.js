@@ -16,18 +16,6 @@ export default class LoanCalculator extends React.Component {
         }
     }
 
-    // saveToLocal = (amount, month) => { 2.
-    //     console.log('amount', amount, 'month', month)
-    //     const data = {
-    //         amount: amount,
-    //         month: month
-    //     }
-    //     this.state.list.push(data)
-    //     console.log('data', data, 'list', this.state.list)
-    //     localStorage.setItem('intrestList', JSON.stringify(this.state.list))
-
-    // }
-
     saveToLocal = (data) => {
         console.log('local', data)
         const saveLocal = {
@@ -40,15 +28,6 @@ export default class LoanCalculator extends React.Component {
         this.state.list.push(data)
         localStorage.setItem('intrestList', JSON.stringify(this.state.list))
 
-        // console.log('amount', amount, 'month', month)
-        // const data = {
-        //     amount: amount,
-        //     month: month,
-        // }
-        // this.state.list.push(data)
-        // console.log('data', data, 'list', this.state.list)
-        // localStorage.setItem('intrestList', JSON.stringify(this.state.list))
-
     }
 
 
@@ -60,7 +39,6 @@ export default class LoanCalculator extends React.Component {
                 if (response.data) {
                     const pAmount = response.data.principal.amount
                     const month = response.data.numPayments
-                    // this.saveToLocal(pAmount, month) 1.
                     this.saveToLocal(response.data)
                     this.setState({
                         intrest: response.data.interestRate,
@@ -100,22 +78,11 @@ export default class LoanCalculator extends React.Component {
             textTransform: "uppercase",
             color: "#4CAF50"
         }
-        // const lists = JSON.parse(localStorage.getItem('intrestList'))
         return (
             <div className="container">
                 <div className="row">
                     <div className="col-md-3" style={{ "backgroundColor": "powderblue" }}>
-                        <History handleClick={this.handleClick}/>
-                        {/* <ul className="nav flex-column">
-                            {
-                                lists.map(list => {
-                                    console.log('list', list)
-                                    return <li className="nav-item">
-                                        <button onClick={() => { this.handleClick(list) }} className="btn btn-outline-secondary">Amount -{list.principal.amount}{' '}Month - {list.numPayments}</button>
-                                    </li>
-                                })
-                            }
-                        </ul> */}
+                        {localStorage.getItem('intrestList') && (<History handleClick={this.handleClick} />)}
                     </div>
                     <div className="col-md-9">
                         <h3 className="alert alert-danger" role="alert">Interest Calculator</h3>
@@ -128,10 +95,6 @@ export default class LoanCalculator extends React.Component {
                         <hr />
                     </div>
                 </div>
-
-                {/* {
-                   localStorage.getItem('intrestList') && (<History />)
-                } */}
             </div>
         )
     }

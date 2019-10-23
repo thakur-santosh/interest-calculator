@@ -8,7 +8,6 @@ function History(props) {
     }
 
     function handleClick(list) {
-        console.log(list)
         props.handleClick(list)
     }
 
